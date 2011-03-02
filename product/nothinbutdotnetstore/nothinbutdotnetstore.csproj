@@ -90,6 +90,7 @@
     <Compile Include="web\application\catalogbrowsing\ViewTheDepartmentsInADepartment.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewTheMainDepartmentsInTheStore.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewTheProductsIntheDepartment.cs" />
+    <Compile Include="web\application\catalogbrowsing\ViewTheReportModel.cs" />
     <Compile Include="web\application\model\Department.cs" />
     <Compile Include="web\application\model\Product.cs" />
     <Compile Include="web\core\ApplicationBehaviour .cs" />
