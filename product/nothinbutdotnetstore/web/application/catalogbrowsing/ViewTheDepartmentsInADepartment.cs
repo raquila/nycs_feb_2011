@@ -8,6 +8,7 @@ using nothinbutdotnetstore.web.core.stubs;
 
 namespace nothinbutdotnetstore.web.application.catalogbrowsing
 {
+
     public class ViewTheDepartmentsInADepartment : ApplicationBehaviour
     {
         StoreCatalog store_catalog;
