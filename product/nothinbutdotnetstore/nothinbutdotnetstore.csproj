@@ -126,6 +126,7 @@
     <Compile Include="web\core\aspnet\WebFormResponseEngine.cs" />
     <Compile Include="web\core\stubs\StubViewPathRegistry.cs" />
     <Compile Include="web\core\Url.cs" />
+    <Compile Include="web\core\UrlFormatter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

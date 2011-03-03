@@ -1,6 +1,8 @@
 using System;
 using Machine.Specifications;
 using Machine.Specifications.DevelopWithPassion.Rhino;
+using nothinbutdotnetstore.web.application.catalogbrowsing;
+using nothinbutdotnetstore.web.application.model;
 using nothinbutdotnetstore.web.core;
 
 namespace nothinbutdotnetstore.specs
@@ -11,6 +13,7 @@ namespace nothinbutdotnetstore.specs
         {
         }
 
+       
         [Subject(typeof(Url))]
         public class when_building_a_conditional_url : concern
         {
@@ -55,8 +58,8 @@ namespace nothinbutdotnetstore.specs
         [Subject(typeof(Url))]
         public class when_building_a_url_to_target_a_behaviour : concern
         {
-            Because b = () =>
-                result = Url.to_run<OurBehaviour>();
+            private Because b = () =>
+                                result = Url.to_run<OurBehaviour>().format();
 
             It should_return_a_string_containing_the_name_of_the_behaviour = () =>
                 result.ShouldContain(typeof(OurBehaviour).Name);
