@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq.Expressions;
-using Machine.Specifications.DevelopWithPassion.Extensions;
-using nothinbutdotnetstore.utility;
+﻿using System.Linq.Expressions;
 
 namespace nothinbutdotnetstore.utility
 {
@@ -9,8 +6,7 @@ namespace nothinbutdotnetstore.utility
     {
         public string map_from<Item>(Expression<PropertyAccessor<Item, object>> property_accessor)
         {
-            //return "";
-            return property_accessor.Body.downcast_to<MemberExpression>().Member.Name;
+            return ((MemberExpression)property_accessor.Body).Member.Name;
         }
     }
 }

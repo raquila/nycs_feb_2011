@@ -17,7 +17,7 @@ namespace nothinbutdotnetstore.web.core
             return new RequestContainsCommand<BehaviourToMatch>().matches;
         }
 
-        public static string to_run_iif<Left, Right>(bool condition)
+        public static UrlDecorator to_run_iif<Left, Right>(bool condition)
         {
             throw new NotImplementedException();
         }
