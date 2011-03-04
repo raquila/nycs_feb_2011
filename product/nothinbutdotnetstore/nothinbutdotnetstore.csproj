@@ -114,6 +114,7 @@
     <Compile Include="web\core\DefaultUrlBuilder.cs" />
     <Compile Include="web\core\DefaultUrlDetailAppender.cs" />
     <Compile Include="web\core\DefaultUrlDetailAppenderFactory.cs" />
+    <Compile Include="web\core\DefaultUrlFormattingVisitor.cs" />
     <Compile Include="web\core\RequestContainsCommand.cs" />
     <Compile Include="web\core\MissingRequestCommandFactory.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
