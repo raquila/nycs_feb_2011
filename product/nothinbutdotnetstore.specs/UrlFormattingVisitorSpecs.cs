@@ -1,5 +1,6 @@
  using System;
  using System.Collections.Generic;
+ using System.Text;
  using Machine.Specifications;
  using Machine.Specifications.DevelopWithPassion.Rhino;
  using nothinbutdotnetstore.web.core;
@@ -19,19 +20,18 @@ namespace nothinbutdotnetstore.specs
         {
             private Establish c = () =>
                                       {
+                                          string_builder = new StringBuilder();
+                                          provide_a_basic_sut_constructor_argument(string_builder);
                                           item = new KeyValuePair<string, object>("test",1);
                                       };
 
-            private Because b = () =>
-                                    {
-                                        sut.visit(item);
-                                        result = sut.get_result();
-                                    };
+            private Because b = () => sut.visit(item);
 
 
-            private It should_format_using_visitor = () => result.ShouldEqual("test=1");
+            private It should_format_using_visitor = () => string_builder.ToString().ShouldEqual("test=1");
             private static KeyValuePair<string, object> item;
             private static string result;
+            private static StringBuilder string_builder;
         }
 
         
