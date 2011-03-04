@@ -61,6 +61,18 @@ namespace nothinbutdotnetstore.specs
             static UrlDetailAppenderFactory url_detail_appender_factory;
         }
 
+        [Subject(typeof(DefaultUrlBuilder))]
+        public class when_formatting_as_a_string : concern<UrlDecorator, DefaultUrlBuilder>
+        {
+            Establish c = () =>
+            {
+            };
+
+            It should_return_the_detail_appender_to_add_the_details_of_the_item = () => { };
+
+
+        }
+
         public class TheItem
         {
             public string name { get; set; }

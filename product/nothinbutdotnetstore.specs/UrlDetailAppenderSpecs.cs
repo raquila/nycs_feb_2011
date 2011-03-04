@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq.Expressions;
 using Machine.Specifications;
 using Machine.Specifications.DevelopWithPassion.Extensions;
