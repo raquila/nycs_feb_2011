@@ -11,6 +11,9 @@ namespace nothinbutdotnetstore.web.core
 
         public void visit(KeyValuePair<string, object> item)
         {
+            if (!string.IsNullOrEmpty(url))
+                url += "&";
+
             url += string.Format("{0}={1}", item.Key, item.Value);
         }
 
