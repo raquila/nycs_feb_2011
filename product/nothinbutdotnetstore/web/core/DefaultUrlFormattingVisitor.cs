@@ -6,7 +6,7 @@ namespace nothinbutdotnetstore.web.core
     public class DefaultUrlFormattingVisitor : UrlFormattingVisitor
     {
 
-        public string url { get; set; }
+        private string url { get; set; }
         
 
         public void visit(KeyValuePair<string, object> item)
