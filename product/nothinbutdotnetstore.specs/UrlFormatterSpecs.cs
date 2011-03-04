@@ -32,7 +32,7 @@ namespace nothinbutdotnetstore.specs
         }
 
         [Subject(typeof (UrlFormatter<ViewTheDepartmentsInADepartment>))]
-        public class when_adding_a_department_to_a_payload : concern
+        public class when_adding_a_department_that_has_products : concern
         {
             private It first_observation = () => { };
 
