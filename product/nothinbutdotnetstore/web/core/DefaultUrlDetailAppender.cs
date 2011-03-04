@@ -17,7 +17,7 @@ namespace nothinbutdotnetstore.web.core
             this.tokens = tokens;
         }
 
-        public UrlDetailAppender<ItemWithDetails> the_detail(
+        public UrlDetailAppender<ItemWithDetails> include(
             Expression<PropertyAccessor<ItemWithDetails, object>> property_accessor)
         {
             tokens.register_token_pair(property_name_expression_mapper.map_from(property_accessor),

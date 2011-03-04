@@ -87,6 +87,9 @@
     <Compile Include="utility\PropertyNameExpressionMapper.cs" />
     <Compile Include="utility\Stub .cs" />
     <Compile Include="utility\TokenStore.cs" />
+    <Compile Include="utility\ValueReturningVisitor.cs" />
+    <Compile Include="utility\Visitor.cs" />
+    <Compile Include="utility\VisitorExtensions.cs" />
     <Compile Include="web\application\catalogbrowsing\Query.cs" />
     <Compile Include="web\application\catalogbrowsing\StoreCatalogController.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewResultFor.cs" />
@@ -134,6 +137,8 @@
     <Compile Include="web\core\UrlDecorator.cs" />
     <Compile Include="web\core\UrlDetailAppender.cs" />
     <Compile Include="web\core\UrlDetailAppenderFactory.cs" />
+    <Compile Include="web\core\UrlDetailConfiguration.cs" />
+    <Compile Include="web\core\UrlFormattingVisitor.cs" />
     <Compile Include="web\core\UrlToken.cs" />
   </ItemGroup>
   <ItemGroup>

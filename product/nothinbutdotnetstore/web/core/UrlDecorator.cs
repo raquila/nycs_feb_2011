@@ -1,7 +1,9 @@
+using System;
+
 namespace nothinbutdotnetstore.web.core
 {
     public interface UrlDecorator
     {
-        UrlDetailAppender<PayloadItem> include_payload<PayloadItem>(PayloadItem item);
+        UrlDecorator include_payload<PayloadItem>(PayloadItem item, UrlDetailConfiguration<PayloadItem> config);
     }
 }

@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using Machine.Specifications;
 using Machine.Specifications.DevelopWithPassion.Extensions;
 using Machine.Specifications.DevelopWithPassion.Rhino;
@@ -43,22 +46,35 @@ namespace nothinbutdotnetstore.specs
             {
                 our_item = new TheItem();
                 detail_appender = an<UrlDetailAppender<TheItem>>();
+                name_pointer = x => x.name;
                 url_detail_appender_factory = the_dependency<UrlDetailAppenderFactory>();
 
                 url_detail_appender_factory.Stub(x => x.create_detail_appender_for(our_item, token_store))
                     .Return(detail_appender);
+
+                appender_configuration = appender =>
+                {
+                    appender.include(name_pointer);
+                };
             };
 
             Because b = () =>
-                result = sut.include_payload(our_item);
+                result = sut.include_payload(our_item,appender_configuration);
 
-            It should_return_the_detail_appender_to_add_the_details_of_the_item = () =>
-                result.ShouldEqual(detail_appender);
+            It should_run_the_appender_configuration_against_the_appender_created_by_the_factory = () =>
+                detail_appender.received(x => x.include(name_pointer));
+
+            It should_return_a_url_decorator_to_continue_url_building = () =>
+                result.ShouldBeAn<UrlDecorator>().ShouldNotEqual(sut);
+
 
             static TheItem our_item;
-            static UrlDetailAppender<TheItem> result;
+            static UrlDecorator result;
             static UrlDetailAppender<TheItem> detail_appender;
             static UrlDetailAppenderFactory url_detail_appender_factory;
+            static UrlDetailConfiguration<TheItem> appender_configuration;
+            static UrlDetailAppender<TheItem> item_used;
+            static Expression<PropertyAccessor<TheItem, object>> name_pointer;
         }
 
         [Subject(typeof(DefaultUrlBuilder))]
@@ -66,11 +82,33 @@ namespace nothinbutdotnetstore.specs
         {
             Establish c = () =>
             {
+                the_result = "sdfsdfsdf";
+                all_tokens = new List<KeyValuePair<string,object>>();
+                Enumerable.Range(1,100).each(x => all_tokens.Add(new KeyValuePair<string,object>(x.ToString(),x)));
+
+
+                url_formatting_visitor = the_dependency<UrlFormattingVisitor>();
+
+                url_formatting_visitor.Stub(x => x.get_result()).Return(the_result);
+                token_store.Stub(x => x.GetEnumerator()).Return(all_tokens.GetEnumerator());
+
             };
 
-            It should_return_the_detail_appender_to_add_the_details_of_the_item = () => { };
+
+            Because b = () =>
+                result = sut.ToString();
 
 
+            It should_visit_all_of_the_tokens = () =>
+                all_tokens.each(x => url_formatting_visitor.received(y => y.visit(x)));
+  
+            It should_return_the_result_of_the_tokenizing_visitor = () =>
+                result.ShouldEqual(the_result);
+
+            static string result;
+            static string the_result;
+            static UrlFormattingVisitor url_formatting_visitor;
+            static List<KeyValuePair<string, object>> all_tokens;
         }
 
         public class TheItem

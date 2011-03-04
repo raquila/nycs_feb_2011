@@ -32,7 +32,7 @@ namespace nothinbutdotnetstore.specs
             };
 
             Because b = () =>
-                result = sut.the_detail(x => x.name);
+                result = sut.include(x => x.name);
 
             It should_store_the_property_name_and_value_correctly = () =>
                 tokens.received(x => x.register_token_pair(property_name, the_item.name));
