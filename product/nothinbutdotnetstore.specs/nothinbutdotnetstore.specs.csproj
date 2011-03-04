@@ -118,6 +118,7 @@
     <Compile Include="UrlBuilderSpecs.cs" />
     <Compile Include="UrlDetailAppenderFactorySpecs.cs" />
     <Compile Include="UrlDetailAppenderSpecs.cs" />
+    <Compile Include="UrlFormattingVisitorSpecs.cs" />
     <Compile Include="utility\ExpressionUtility.cs" />
     <Compile Include="ViewResultsForSpecs.cs" />
     <Compile Include="FrontControllerSpecs.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="ViewTheMainDepartmentsInTheStoreSpecs.cs" />
     <Compile Include="ViewTheProductsIntheDepartmentSpecs.cs" />
     <Compile Include="VisitorExtensionsSpecs.cs" />
+    <Compile Include="VisitorSpecs.cs" />
     <Compile Include="WebFormResponseEngineSpecs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
