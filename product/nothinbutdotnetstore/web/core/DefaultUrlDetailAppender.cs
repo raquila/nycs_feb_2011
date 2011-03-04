@@ -5,9 +5,9 @@ namespace nothinbutdotnetstore.web.core
 {
     public class DefaultUrlDetailAppender<ItemWithDetails> : UrlDetailAppender<ItemWithDetails>
     {
-        PropertyNameExpressionMapper property_name_expression_mapper;
-        TokenStore tokens;
-        ItemWithDetails item;
+        public PropertyNameExpressionMapper property_name_expression_mapper;
+        public TokenStore tokens;
+        public ItemWithDetails item;
 
         public DefaultUrlDetailAppender(PropertyNameExpressionMapper property_name_expression_mapper,
                                         TokenStore tokens, ItemWithDetails item)
