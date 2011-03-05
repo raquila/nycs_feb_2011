@@ -18,7 +18,12 @@ namespace nothinbutdotnetstore.web.core
                 builder.AppendFormat("{0}.nyc", item.Value.ToString() );
             else
             {
-                builder.AppendFormat("?{0}={1}", item.Key, item.Value);
+                if (builder.ToString().Contains("?"))
+                {
+                    builder.AppendFormat("&{0}={1}", item.Key, item.Value);
+                }
+                else
+                    builder.AppendFormat("?{0}={1}", item.Key, item.Value);
             }
         }
 
