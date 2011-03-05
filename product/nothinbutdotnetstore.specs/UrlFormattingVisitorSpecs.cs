@@ -35,5 +35,33 @@ namespace nothinbutdotnetstore.specs
             static StringBuilder string_builder;
             static string command_name;
         }
+
+        [Subject(typeof(DefaultUrlFormattingVisitor))]
+        public class when_visiting_the_second_item : concern
+        {
+            Establish c = () =>
+            {
+                string_builder = new StringBuilder();
+                command_name = "ViewTheDetails";
+                provide_a_basic_sut_constructor_argument(string_builder);
+                item = new KeyValuePair<string, object>("test", command_name);
+                item2 = new KeyValuePair<string, object>("test2", command_name);
+            };
+
+            private Because b = () =>
+                                    {
+                                        sut.visit(item);
+                                        sut.visit(item2);
+                                    };
+
+            It should_add_only_the_value_of_the_item_suffixed_with_the_handler_extension = () =>
+                string_builder.ToString().ShouldEqual("{0}.nyc?".format_using(command_name)+"{0}={1}".format_using(item2.Key,item2.Value));
+
+            static KeyValuePair<string, object> item;
+            static string result;
+            static StringBuilder string_builder;
+            static string command_name;
+            private static KeyValuePair<string, object> item2;
+        }
     }
 }
